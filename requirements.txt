@@ -1,0 +1,7 @@
+virtualenv
+asyncio
+azure-storage-blob 
+azure-eventhub-checkpointstoreblob-aio
+azure-identity
+azure-eventhub
+configparser
