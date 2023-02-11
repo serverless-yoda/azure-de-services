@@ -1,10 +1,10 @@
 import uuid
 from azure.storage.blob import BlobServiceClient,  ContainerClient
 
-from common.utilities import *
-from constants.service_constants import BLOB_RAW_CONTAINER_NAME,\
-                                        BLOB_STORAGE_CONNECTION_KEY,\
-                                        RENTAL_STREAMING_FOLDER
+from eventhub_utilities import *
+from eventhub_constants import BLOB_RAW_CONTAINER_NAME,\
+                               BLOB_STORAGE_CONNECTION_KEY,\
+                               RENTAL_STREAMING_FOLDER
 
 
 

@@ -4,7 +4,7 @@ from azure.eventhub.extensions.checkpointstoreblobaio import (
     BlobCheckpointStore,
 )
 from savetodatalake import *
-from constants.service_constants import EVENT_HUB_CONNECTION,\
+from eventhub_constants import EVENT_HUB_CONNECTION,\
                                         BLOB_STORAGE_CONNECTION_KEY,\
                                         BLOB_CHECK_POINT_CONTAINER_NAME,\
                                         SAVE_TO_ADLS2,\

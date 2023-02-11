@@ -1,21 +1,26 @@
 import json
 import asyncio
+from datetime import datetime
 
 from azure.eventhub import EventData
 from azure.eventhub.aio import EventHubProducerClient
 
 # data model
-from models.rentals import Rental
-from common.utilities import *
-from constants.service_constants import EVENT_HUB_NAME,\
-                                        EVENT_HUB_CONNECTION,\
-                                        RECORD_TO_SEND
+from rentals import Rental
+from eventhub_utilities import *
+
+from eventhub_constants import EVENT_HUB_NAME,\
+                              EVENT_HUB_CONNECTION,\
+                              RECORD_TO_SEND
+
 
 
 
 def create_streaming_data():
     arrayList = []
     ctr = 0
+    now = datetime.datetime.now() 
+    date_time = now.strftime("%m/%d/%Y %H:%M:%S")
     while ctr < int(RECORD_TO_SEND):
         arrayList.append(Rental(generate_random_rental(),
                                 generate_random_status(),
@@ -23,8 +28,8 @@ def create_streaming_data():
                                 generate_random_cities(),
                                 generate_random_pickup_date(),
                                 generate_random_dropoff_date(),
-                                'NZ'),
-                                datetime.now())
+                                'NZ',
+                                date_time))
         ctr = ctr + 1
 
 
