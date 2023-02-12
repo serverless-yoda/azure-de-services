@@ -3,12 +3,11 @@ from azure.storage.blob import BlobServiceClient,  ContainerClient
 
 from eventhub_utilities import *
 from eventhub_constants import BLOB_RAW_CONTAINER_NAME,\
-                               BLOB_STORAGE_CONNECTION_KEY,\
-                               RENTAL_STREAMING_FOLDER
+                               BLOB_STORAGE_CONNECTION_KEY
 
 
 
-def stream_block_blob(str_json):
+def stream_block_blob(str_json, folder_destination):
     # Instantiate a new ContainerClient
     container_name = BLOB_RAW_CONTAINER_NAME  # str(uuid.uuid4())
     # Create a unique name for the container
@@ -24,8 +23,8 @@ def stream_block_blob(str_json):
 
     data = str_json
     #current_time = datetime.datetime.now()
-    dir_parent_name = RENTAL_STREAMING_FOLDER.split('/')[0]
-    dir_child_name = RENTAL_STREAMING_FOLDER.split('/')[0]
+    dir_parent_name = folder_destination.split('/')[0]
+    dir_child_name = folder_destination.split('/')[1]
     
     file_name = ("/".join([dir_parent_name,dir_child_name,
                            # str(current_time.year),

@@ -53,5 +53,4 @@ BLOB_STORAGE_CONNECTION_KEY = (f'BlobEndpoint=https://{BLOB_EP_URL}/;'
                                )
 
 
-RENTAL_STREAMING_FOLDER = parser.get('STORAGE', 'RENTAL_STREAMING_FOLDER')
 BLOB_RAW_CONTAINER_NAME = parser.get('STORAGE','BLOB_RAW_CONTAINER_NAME')

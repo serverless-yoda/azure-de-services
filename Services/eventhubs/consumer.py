@@ -1,3 +1,4 @@
+import json
 import asyncio
 from azure.eventhub.aio import EventHubConsumerClient
 from azure.eventhub.extensions.checkpointstoreblobaio import (
@@ -13,6 +14,10 @@ from eventhub_constants import EVENT_HUB_CONNECTION,\
 
 async def on_event(partition_context, event):
     str_json = event.body_as_str(encoding="UTF-8")
+    obj_json = json.loads(str_json)
+    folder_destination = obj_json['table_folder']
+    del obj_json
+    
     # Print the event data.
     print(
         'Received the event: "{}" from the partition with ID: "{}"'.format(
@@ -22,7 +27,7 @@ async def on_event(partition_context, event):
 
     # save to azure datalake storage
     if SAVE_TO_ADLS2:
-        stream_block_blob(str_json)
+        stream_block_blob(str_json,folder_destination)
 
     # Update the checkpoint so that the program doesn't read the events
     # that it has already read when you run it next time.

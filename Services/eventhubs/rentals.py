@@ -8,4 +8,5 @@ class Rental:
         self.dropoffdate = dropoffdate
         self.country = country
         self.ts = ts
+        self.table_folder = 'streaming/rental'
 
