@@ -26,6 +26,7 @@ def stream_block_blob(str_json, folder_destination):
     dir_parent_name = folder_destination.split('/')[0]
     dir_child_name = folder_destination.split('/')[1]
     
+    # lake/landing/rental
     file_name = ("/".join([dir_parent_name,dir_child_name,
                            # str(current_time.year),
                            # str(current_time.month),
